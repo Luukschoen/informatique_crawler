@@ -29,7 +29,7 @@ class PowerSupplyItem(scrapy.Item):
 
 
 class MotherboardItem(scrapy.Item):
-	# generic for different sockets, just different starting links
+	# generic for different motherboards, just different starting links
     title = scrapy.Field()
     link = scrapy.Field()
     price = scrapy.Field()
@@ -37,7 +37,7 @@ class MotherboardItem(scrapy.Item):
 
 
 class FanItem(scrapy.Item):
-    # generic for different sockets, just different starting links
+    # generic for different fans, just different starting links
     title = scrapy.Field()
     link = scrapy.Field()
     price = scrapy.Field()
@@ -45,7 +45,7 @@ class FanItem(scrapy.Item):
 
 
 class SoundcardItem(scrapy.Item):
-    # generic for different sockets, just different starting links
+    # generic for different soundcards, just different starting links
     title = scrapy.Field()
     link = scrapy.Field()
     price = scrapy.Field()
@@ -54,8 +54,15 @@ class SoundcardItem(scrapy.Item):
 
 
 class harddiskItem(scrapy.Item):
-    # generic for different sockets, just different starting links
+    # generic for different harddisks, just different starting links
     title = scrapy.Field()
     link = scrapy.Field()
     price = scrapy.Field()
     stock = scrapy.Field()
+
+class RamddrItem(scrapy.Item):
+    # generic for different ddr ram modules, just different starting links
+    title = scrapy.Field()
+    link = scrapy.Field()
+    price = scrapy.Field()
+    stock = scrapy.Field()    
