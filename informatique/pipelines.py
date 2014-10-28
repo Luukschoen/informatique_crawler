@@ -27,5 +27,8 @@ class JsonExportPipeline(object):
         file.close()
 
     def process_item(self, item, spider):
-        self.exporter.export_item(item)
+        try:
+            self.exporter.export_item(item)
+        except Exception, e:
+            pass
         return item

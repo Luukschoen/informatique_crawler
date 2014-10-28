@@ -34,3 +34,18 @@ class MotherboardItem(scrapy.Item):
     link = scrapy.Field()
     price = scrapy.Field()
     stock = scrapy.Field()
+
+
+class FanItem(scrapy.Item):
+    # generic for different sockets, just different starting links
+    title = scrapy.Field()
+    link = scrapy.Field()
+    price = scrapy.Field()
+    stock = scrapy.Field()
+
+class SoundcardItem(scrapy.Item):
+    # generic for different sockets, just different starting links
+    title = scrapy.Field()
+    link = scrapy.Field()
+    price = scrapy.Field()
+    stock = scrapy.Field()
