@@ -1,7 +1,7 @@
         # -*- coding: utf-8 -*-
 import scrapy
 
-from informatique.items import PowerSupplyItem
+from project.items import PowerSupplyItem
 
 class PowersupplySpider(scrapy.Spider):
     name = "powersupply"

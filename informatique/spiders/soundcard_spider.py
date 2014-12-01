@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 
-from informatique.items import SoundcardItem
+from project.items import SoundcardItem
 
 class MotherboardSpider(scrapy.Spider):
     name = "soundcards"

@@ -1,7 +1,7 @@
         # -*- coding: utf-8 -*-
 import scrapy
 
-from informatique.items import MotherboardItem
+from project.items import MotherboardItem
 
 class MotherboardSpider(scrapy.Spider):
     name = "motherboards"

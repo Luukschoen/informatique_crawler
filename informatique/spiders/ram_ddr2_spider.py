@@ -1,7 +1,7 @@
         # -*- coding: utf-8 -*-
 import scrapy
 
-from informatique.items import RamddrItem
+from project.items import RamddrItem
 
 class Ram_ddr2Spider(scrapy.Spider):
     name = "ramddr2"

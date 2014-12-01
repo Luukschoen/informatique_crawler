@@ -2,7 +2,7 @@
         # -*- coding: utf-8 -*-
 import scrapy
 
-from informatique.items import harddiskItem
+from project.items import harddiskItem
 
 class harddiskSpider(scrapy.Spider):
     name = "harddisks"

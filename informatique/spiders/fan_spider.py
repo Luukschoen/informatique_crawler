@@ -1,7 +1,7 @@
         # -*- coding: utf-8 -*-
 import scrapy
 
-from informatique.items import FanItem
+from project.items import FanItem
 
 class FanSpider(scrapy.Spider):
     name = "fans"

@@ -1,4 +1,4 @@
-informatique_crawler
+project_crawler
 ====================
 
 Python crawler with different spiders
