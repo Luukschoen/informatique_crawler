@@ -8,12 +8,12 @@
 #     http://doc.scrapy.org/en/latest/topics/settings.html
 #
 
-BOT_NAME = 'project'
+BOT_NAME = 'Alternate'
 
-SPIDER_MODULES = ['project.spiders']
-NEWSPIDER_MODULE = 'project.spiders'
+SPIDER_MODULES = ['Alternate.spiders']
+NEWSPIDER_MODULE = 'Alternate.spiders'
 ITEM_PIPELINES = {
-	'project.pipelines.JsonExportPipeline' : 300,
+	'Alternate.pipelines.JsonExportPipeline' : 300,
 }
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'project (+http://www.yourdomain.com)'

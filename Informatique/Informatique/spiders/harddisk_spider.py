@@ -1,20 +1,24 @@
+
         # -*- coding: utf-8 -*-
 import scrapy
 
-from project.items import RamddrItem
+from Informatique.items import harddiskItem
 
-class Ram_ddr4Spider(scrapy.Spider):
-    name = "ramddr4"
+class harddiskSpider(scrapy.Spider):
+    name = "harddisks"
     allowed_domains = ["informatique.nl"]
     start_urls = [
-    # RAM DDR4
-	"http://www.informatique.nl/?m=usl&g=725&view=6&&sort=pop&pl=50",
-
+    # SATA harddisks
+	"http://www.informatique.nl/?m=usl&g=026&view=6&&sort=pop&pl=100",
+	# 2.5 inch harddisks
+	"http://www.informatique.nl/?m=usl&g=028&view=6&&sort=pop&pl=55",
+	# SSD drives
+	"http://www.informatique.nl/?m=usl&g=559&view=6&&sort=pop&pl=200",
         ]
 
     def parse(self, response):
         for sel in response.xpath('//div[@id="content"]/ul/li'):
-            item = RamddrItem()
+            item = harddiskItem()
             item['title'] = sel.xpath('div[@id="title"]/a/text()').extract()
             item['link'] = sel.xpath('div[@id="title"]/a/@href').extract()
             item['price'] = sel.xpath('div[@id="price"]/text()').extract()

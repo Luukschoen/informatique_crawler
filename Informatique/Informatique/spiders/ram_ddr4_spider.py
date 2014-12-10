@@ -1,19 +1,20 @@
         # -*- coding: utf-8 -*-
 import scrapy
 
-from project.items import PowerSupplyItem
+from Informatique.items import RamddrItem
 
-class PowersupplySpider(scrapy.Spider):
-    name = "powersupply"
+class Ram_ddr4Spider(scrapy.Spider):
+    name = "ramddr4"
     allowed_domains = ["informatique.nl"]
     start_urls = [
-        # voedingen
-        "http://www.informatique.nl/?m=usl&g=171&view=6&&sort=pop&pl=999",
+    # RAM DDR4
+	"http://www.informatique.nl/?m=usl&g=725&view=6&&sort=pop&pl=50",
+
         ]
 
     def parse(self, response):
-        for sel in response.xpath('//div/div/div[@id="content"]/ul/li'):
-            item = PowerSupplyItem()
+        for sel in response.xpath('//div[@id="content"]/ul/li'):
+            item = RamddrItem()
             item['title'] = sel.xpath('div[@id="title"]/a/text()').extract()
             item['link'] = sel.xpath('div[@id="title"]/a/@href').extract()
             item['price'] = sel.xpath('div[@id="price"]/text()').extract()

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 
-from project.items import AlternateVoedingen
+from Alternate.items import AlternateVoedingen
 
 class alternatevoedingen(scrapy.Spider):
     name = "alternatevoedingen"

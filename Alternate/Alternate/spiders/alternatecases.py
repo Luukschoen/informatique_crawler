@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 
-from project.items import AlternateCases
+from Alternate.items import AlternateCases
 
 class alternatecases(scrapy.Spider):
     name = "alternatecases"

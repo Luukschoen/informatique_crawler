@@ -1,19 +1,19 @@
         # -*- coding: utf-8 -*-
 import scrapy
 
-from project.items import FanItem
+from Informatique.items import RamddrItem
 
-class FanSpider(scrapy.Spider):
-    name = "fans"
+class Ram_ddr1Spider(scrapy.Spider):
+    name = "ramddr1"
     allowed_domains = ["informatique.nl"]
     start_urls = [
-"http://www.informatique.nl/?m=usl&g=015&view=6&&sort=pop&pl=500",
-
-        ]
+    # RAM DDR1
+	"http://www.informatique.nl/?M=ART&G=077",
+    ]
 
     def parse(self, response):
         for sel in response.xpath('//div[@id="content"]/ul/li'):
-            item = FanItem()
+            item = RamddrItem()
             item['title'] = sel.xpath('div[@id="title"]/a/text()').extract()
             item['link'] = sel.xpath('div[@id="title"]/a/@href').extract()
             item['price'] = sel.xpath('div[@id="price"]/text()').extract()

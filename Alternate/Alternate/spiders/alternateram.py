@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 
-from project.items import AlternateRam
+from Alternate.items import AlternateRam
 
 class alternateram(scrapy.Spider):
     name = "alternateram"
