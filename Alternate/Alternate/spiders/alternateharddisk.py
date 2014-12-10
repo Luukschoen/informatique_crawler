@@ -13,11 +13,12 @@ class alternateharddisk(scrapy.Spider):
         "http://www.alternate.nl/html/highlights/page.html?hgid=217&tgid=967&tk=7&lk=9581"
         ]
     def parse(self, response):
-        for sel in response.xpath('//div[@id="listingResult"]'):
+        for sel in response.xpath('//div[@class="listRow"]'):
             item = AlternateHarddisk()
-            item ['title'] = sel.xpath('div/a/span/span/h2/span/span/text()').extract()
-            item ['link'] = sel.xpath('div/a/@href').extract()
-            item ['price'] = sel.xpath('div/div/p/span/text()').extract()
+            item['title'] = sel.xpath('a/span/span/h2/span/span/text()').extract()
+            #only do this one if it's available
+            item['link'] = sel.xpath('div/a/@href').extract()
+            item['price'] = sel.xpath('div[@class="waresSum"]/p/span/text()').extract()
             yield item
 
 

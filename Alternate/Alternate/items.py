@@ -19,7 +19,22 @@ class AlternateHarddisk(scrapy.Item):
     link = scrapy.Field()
     price = scrapy.Field()
 
-class AlternateRam(scrapy.Item):
+class AlternateRam1(scrapy.Item):
+    title = scrapy.Field()
+    link = scrapy.Field()
+    price = scrapy.Field()
+
+class AlternateRam2(scrapy.Item):
+    title = scrapy.Field()
+    link = scrapy.Field()
+    price = scrapy.Field()
+
+class AlternateRam3(scrapy.Item):
+    title = scrapy.Field()
+    link = scrapy.Field()
+    price = scrapy.Field()
+
+class AlternateRam4(scrapy.Item):
     title = scrapy.Field()
     link = scrapy.Field()
     price = scrapy.Field()
@@ -28,6 +43,17 @@ class AlternateMoederbord(scrapy.Item):
     title = scrapy.Field()
     link = scrapy.Field()
     price = scrapy.Field()
+
+class AlternateKoeling(scrapy.Item):
+    title = scrapy.Field()
+    link = scrapy.Field()
+    price = scrapy.Field()
+
+class AlternateGeluidskaart(scrapy.Item):
+    title = scrapy.Field()
+    link = scrapy.Field()
+    price = scrapy.Field()
+
 
 class AlternateVoedingen(scrapy.Item):
     title = scrapy.Field()

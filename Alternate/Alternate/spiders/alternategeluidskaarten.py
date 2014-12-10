@@ -1,22 +1,21 @@
 # -*- coding: utf-8 -*-
 import scrapy
 
-from Alternate.items import AlternateVoedingen
+from Alternate.items import AlternateGeluidskaart
 
-class alternatevoedingen(scrapy.Spider):
-    name = "alternatevoedingen"
+class alternategeluidskaart(scrapy.Spider):
+    name = "alternategeluidskaart"
     allowed_domains = ["alternate.nl"]
     start_urls = [
-        #Voedingen
-	    "http://www.alternate.nl/html/product/listing.html?navId=11604&bgid=8215&tk=7&lk=9533",
+        #Geluidskaarten
+        "http://www.alternate.nl/html/product/listing.html?navId=17364&navId=17363&navId=17362&tk=7&lk=9517"
         ]
     def parse(self, response):
         for sel in response.xpath('//div[@class="listRow"]'):
-            item = AlternateVoedingen()
+            item = AlternateGeluidskaart()
             item['title'] = sel.xpath('a/span/span/h2/span/span/text()').extract()
             item['link'] = sel.xpath('div/a/@href').extract()
             item['price'] = sel.xpath('div[@class="waresSum"]/p/span/text()').extract()
             yield item
-
 
 

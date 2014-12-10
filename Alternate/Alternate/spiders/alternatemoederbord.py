@@ -13,12 +13,11 @@ class alternatemoederbord(scrapy.Spider):
         "http://www.alternate.nl/html/product/listing.html?navId=11622&tk=7&lk=9419",
         ]
     def parse(self, response):
-        for sel in response.xpath('//div[@id="listingResult"]'):
+        for sel in response.xpath('//div[@class="listRow"]'):
             item = AlternateMoederbord()
-            item ['title'] = sel.xpath('div/a/span/span/h2/span/span/text()').extract()
-            item ['link'] = sel.xpath('div/a/@href').extract()
-            item ['price'] = sel.xpath('div/div/p/span/text()').extract()
+            item['title'] = sel.xpath('a/span/span/h2/span/span/text()').extract()
+            item['link'] = sel.xpath('div/a/@href').extract()
+            item['price'] = sel.xpath('div[@class="waresSum"]/p/span/text()').extract()
             yield item
-
 
 
