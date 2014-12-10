@@ -12,6 +12,7 @@ class AlternateCases(scrapy.Item):
     title = scrapy.Field()
     link = scrapy.Field()
     price = scrapy.Field()
+    stock = scrapy.Field()
 
 class AlternateHarddisk(scrapy.Item):
     title = scrapy.Field()

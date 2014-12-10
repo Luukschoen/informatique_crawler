@@ -6,6 +6,7 @@
 # http://doc.scrapy.org/en/latest/topics/items.html
 
 import scrapy
+
 #Informatique
 class CasesItem(scrapy.Item):
     title = scrapy.Field()
