@@ -14,10 +14,10 @@ class PowersupplySpider(scrapy.Spider):
     def parse(self, response):
         for sel in response.xpath('//div/div/div[@id="content"]/ul/li'):
             item = PowerSupplyItem()
-            item['title'] = sel.xpath('div[@id="title"]/a/text()').extract()
-            item['link'] = sel.xpath('div[@id="title"]/a/@href').extract()
-            item['price'] = sel.xpath('div[@id="price"]/text()').extract()
-            item['stock'] = sel.xpath('div[@id="stock"]/text()').extract()
+            item['title'] = ''.join(sel.xpath('div[@id="title"]/a/text()').extract())
+            item['link'] = ''.join(sel.xpath('div[@id="title"]/a/@href').extract())
+            item['price'] = ''.join(sel.xpath('div[@id="price"]/text()').extract())
+            item['stock'] = ''.join(sel.xpath('div[@id="stock"]/text()').extract())
             yield item
 
 

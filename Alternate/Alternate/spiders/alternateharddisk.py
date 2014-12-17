@@ -15,10 +15,10 @@ class alternateharddisk(scrapy.Spider):
     def parse(self, response):
         for sel in response.xpath('//div[@class="listRow"]'):
             item = AlternateHarddisk()
-            item['title'] = sel.xpath('a/span/span/h2/span/span/text()').extract()
+            item['title'] = ''.join(sel.xpath('a/span/span/h2/span/span/text()').extract())
             #only do this one if it's available
-            item['link'] = sel.xpath('div/a/@href').extract()
-            item['price'] = sel.xpath('div[@class="waresSum"]/p/span/text()').extract()
+            item['link'] = ''.join(sel.xpath('div/a/@href').extract())
+            item['price'] = ''.join(sel.xpath('div[@class="waresSum"]/p/span/text()').extract())
             yield item
 
 
