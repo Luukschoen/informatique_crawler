@@ -36,9 +36,11 @@ class MotherboardSpider(scrapy.Spider):
         for sel in response.xpath('//div/div/div[@id="content"]/ul/li'):
             item = MotherboardItem()
             item['title'] = ''.join(sel.xpath('div[@id="title"]/a/text()').extract())
+            item['image'] = ''.join(sel.xpath('div[@id="image"]/a/img/@src').extract())
             item['link'] = ''.join(sel.xpath('div[@id="title"]/a/@href').extract())
             item['price'] = ''.join(sel.xpath('div[@id="price"]/text()').extract())
             item['stock'] = ''.join(sel.xpath('div[@id="stock"]/text()').extract())
+            item['ddr'] = ''.join(sel.xpath('div[@id="description"]/ul[1]/li[3]/text()').extract())
             yield item
 
 

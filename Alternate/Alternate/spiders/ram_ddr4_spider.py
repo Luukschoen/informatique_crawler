@@ -1,25 +1,21 @@
 # -*- coding: utf-8 -*-
 import scrapy
 
-from Alternate.items import AlternateHarddisk
+from Alternate.items import RamddrItem
 
-class alternateharddisk(scrapy.Spider):
-    name = "alternateharddisk"
+class Ram_ddr4Spider(scrapy.Spider):
+    name = "ramddr4"
     allowed_domains = ["alternate.nl"]
     start_urls = [
-        # SATA harddisks
-	    "http://www.alternate.nl/html/product/listing.html?navId=11584&bgid=8459&tk=7&lk=9563",
-        # SSD drives
-        "http://www.alternate.nl/html/highlights/page.html?hgid=217&tgid=967&tk=7&lk=9581"
+        #DDR4
+        "http://www.alternate.nl/html/product/listing.html?navId=20678&tk=7&lk=13472",
         ]
     def parse(self, response):
         for sel in response.xpath('//div[@class="listRow"]'):
-            item = AlternateHarddisk()
+            item = RamddrItem()
             item['title'] = ''.join(sel.xpath('a/span/span/h2/span/span/text()').extract())
-            #only do this one if it's available
             item['link'] = ''.join(sel.xpath('div/a/@href').extract())
             item['price'] = ''.join(sel.xpath('div[@class="waresSum"]/p/span/text()').extract())
             yield item
-
 
 

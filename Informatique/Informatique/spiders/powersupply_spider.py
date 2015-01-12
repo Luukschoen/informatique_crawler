@@ -15,6 +15,7 @@ class PowersupplySpider(scrapy.Spider):
         for sel in response.xpath('//div/div/div[@id="content"]/ul/li'):
             item = PowerSupplyItem()
             item['title'] = ''.join(sel.xpath('div[@id="title"]/a/text()').extract())
+            item['image'] = ''.join(sel.xpath('div[@id="image"]/a/img/@src').extract())
             item['link'] = ''.join(sel.xpath('div[@id="title"]/a/@href').extract())
             item['price'] = ''.join(sel.xpath('div[@id="price"]/text()').extract())
             item['stock'] = ''.join(sel.xpath('div[@id="stock"]/text()').extract())

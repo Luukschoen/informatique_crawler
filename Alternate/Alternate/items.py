@@ -7,55 +7,59 @@
 
 import scrapy
 
-#Alternate
-class AlternateCases(scrapy.Item):
+#Informatique
+class CasesItem(scrapy.Item):
     title = scrapy.Field()
+    image = scrapy.Field()
     link = scrapy.Field()
     price = scrapy.Field()
     stock = scrapy.Field()
 
-class AlternateHarddisk(scrapy.Item):
+class PowerSupplyItem(scrapy.Item):
     title = scrapy.Field()
+    image = scrapy.Field()
     link = scrapy.Field()
     price = scrapy.Field()
+    stock = scrapy.Field()
 
-class AlternateRam1(scrapy.Item):
+class MotherboardItem(scrapy.Item):
+    # generic for different motherboards, just different starting links
     title = scrapy.Field()
+    image = scrapy.Field()
     link = scrapy.Field()
     price = scrapy.Field()
+    stock = scrapy.Field()
+    socket = scrapy.Field()
+    ddr = scrapy.Field()
 
-class AlternateRam2(scrapy.Item):
+class FanItem(scrapy.Item):
+    # generic for different fans, just different starting links
     title = scrapy.Field()
+    image = scrapy.Field()
     link = scrapy.Field()
     price = scrapy.Field()
+    stock = scrapy.Field()
 
-class AlternateRam3(scrapy.Item):
+class SoundcardItem(scrapy.Item):
+    # generic for different soundcards, just different starting links
     title = scrapy.Field()
+    image = scrapy.Field()
     link = scrapy.Field()
     price = scrapy.Field()
+    stock = scrapy.Field()
 
-class AlternateRam4(scrapy.Item):
+class harddiskItem(scrapy.Item):
+    # generic for different harddisks, just different starting links
     title = scrapy.Field()
+    image = scrapy.Field()
     link = scrapy.Field()
     price = scrapy.Field()
+    stock = scrapy.Field()
 
-class AlternateMoederbord(scrapy.Item):
+class RamddrItem(scrapy.Item):
+    # generic for different ddr ram modules, just different starting links
     title = scrapy.Field()
+    image = scrapy.Field()
     link = scrapy.Field()
     price = scrapy.Field()
-
-class AlternateKoeling(scrapy.Item):
-    title = scrapy.Field()
-    link = scrapy.Field()
-    price = scrapy.Field()
-
-class AlternateGeluidskaart(scrapy.Item):
-    title = scrapy.Field()
-    link = scrapy.Field()
-    price = scrapy.Field()
-
-
-class AlternateVoedingen(scrapy.Item):
-    title = scrapy.Field()
-    link = scrapy.Field()
-    price = scrapy.Field()
+    stock = scrapy.Field()
