@@ -17,8 +17,14 @@ class harddiskSpider(scrapy.Spider):
             item = harddiskItem()
             item['title'] = ''.join(sel.xpath('a/span/span/h2/span/span/text()').extract())
             #only do this one if it's available
-            item['link'] = ''.join(sel.xpath('div/a/@href').extract())
-            item['price'] = ''.join(sel.xpath('div[@class="waresSum"]/p/span/text()').extract())
+            base_url = "http://www.alternate.nl"
+            image_url = base_url + sel.xpath('a[@class="productLink"]/span[@class="product"]/span[@class="pic"]/@style').re('\((.*?)\)')[0]
+            item['image'] = ''.join(image_url)
+            url = base_url + sel.xpath('div/a/@href').extract()[0]
+            item['link'] = ''.join(url)
+            item['price'] = ''.join(sel.xpath('div[@class="waresSum"]/p/span/text()').re("\\d+"))
+            item['product_type'] = ('Schijf')
+            item['shop'] = ('Alternate')
             yield item
 
 

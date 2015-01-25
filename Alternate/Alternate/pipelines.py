@@ -8,6 +8,8 @@ from scrapy.xlib.pydispatch import dispatcher
 from scrapy import signals
 from scrapy.contrib.exporter import JsonItemExporter
 
+
+#This one is used for exporting/parsing everything to json files
 class JsonExportPipeline(object):
 
     def __init__(self):

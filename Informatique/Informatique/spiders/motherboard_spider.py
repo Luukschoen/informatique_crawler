@@ -2,8 +2,10 @@
 import scrapy
 
 from Informatique.items import MotherboardItem
+from scrapy.contrib.spiders import CrawlSpider, Rule
+from scrapy.contrib.linkextractors import LinkExtractor
 
-class MotherboardSpider(scrapy.Spider):
+class MotherboardSpider(CrawlSpider):
     name = "motherboards"
     allowed_domains = ["informatique.nl"]
     start_urls = [
@@ -29,19 +31,20 @@ class MotherboardSpider(scrapy.Spider):
         "http://www.informatique.nl/?M=USL&G=686",
         # onboard CPU 
         "http://www.informatique.nl/?M=USL&G=558",
-
         ]
 
-    def parse(self, response):
-        for sel in response.xpath('//div/div/div[@id="content"]/ul/li'):
-            item = MotherboardItem()
-            item['title'] = ''.join(sel.xpath('div[@id="title"]/a/text()').extract())
-            item['image'] = ''.join(sel.xpath('div[@id="image"]/a/img/@src').extract())
-            item['link'] = ''.join(sel.xpath('div[@id="title"]/a/@href').extract())
-            item['price'] = ''.join(sel.xpath('div[@id="price"]/text()').extract())
-            item['stock'] = ''.join(sel.xpath('div[@id="stock"]/text()').extract())
-            item['ddr'] = ''.join(sel.xpath('div[@id="description"]/ul[1]/li[3]/text()').extract())
-            yield item
+    rules = (Rule(LinkExtractor(restrict_xpaths=('//*[@id="detailview"]/li/a[@class="product_overlay"]',)), callback='parse_url', follow=True), )
 
+
+    def parse_url(self, response):
+        for sel in response.xpath('//*[@id="product-details"]'):
+            item = MotherboardItem()
+            item['title'] = ''.join(sel.xpath('div/div[@id="header"]/div[@id="description"]/span/text()').extract())
+            item['image'] = ''.join(sel.xpath('div/div[@id="product-panel"]/div[@id="product-image"]/a/img/@src').extract())
+            item['link'] = response.url
+            item['price'] = ''.join(sel.xpath('div/div[@id="product-panel"]/div[2]/div/div[@id="price"]/text()').re("\\d+,\\d+"))
+            item['product_type'] = ('Moederbord')
+            item['shop'] = ('Informatique')
+            return item
 
 

@@ -13,7 +13,8 @@ BOT_NAME = 'Alternate'
 SPIDER_MODULES = ['Alternate.spiders']
 NEWSPIDER_MODULE = 'Alternate.spiders'
 ITEM_PIPELINES = {
-	'Alternate.pipelines.JsonExportPipeline' : 300,
+	'Alternate.pipelines.JsonExportPipeline' : 400,
+	 
 }
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'project (+http://www.yourdomain.com)'

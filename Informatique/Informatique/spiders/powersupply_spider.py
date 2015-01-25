@@ -17,7 +17,7 @@ class PowersupplySpider(scrapy.Spider):
             item['title'] = ''.join(sel.xpath('div[@id="title"]/a/text()').extract())
             item['image'] = ''.join(sel.xpath('div[@id="image"]/a/img/@src').extract())
             item['link'] = ''.join(sel.xpath('div[@id="title"]/a/@href').extract())
-            item['price'] = ''.join(sel.xpath('div[@id="price"]/text()').extract())
+            item['price'] = ''.join(sel.xpath('div[@id="price"]/text()').re("\\d+,\\d+"))
             item['stock'] = ''.join(sel.xpath('div[@id="stock"]/text()').extract())
             yield item
 
